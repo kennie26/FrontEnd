@@ -1,0 +1,41 @@
+extends ./layouts/layout
+block user
+  .background2.hidden
+  .background3.hidden
+  header.full-screen-absolute.flex-align-center
+    #naming
+      p Please input your table name below
+      input.border(type='text')
+      .border.small-btn
+        img(src="../img/ok.png")
+    #start.hidden
+      img.title(src="./img/title.png")
+      #notification.hidden.full-screen-absolute
+        div
+          p Beware! Pressing button below will kick out current user.
+          a.border.small-btn.reject
+            img(src="../img/2xno.png")
+          a.border.small-btn.confirm
+            img(src="../img/2xyes.png")
+      .start.border
+        img(src="../img/user/start.png")
+      .end
+  #play.hidden
+    .message
+      img(src="../img/user/start2.png")
+      p Win this challenge for 
+        span.player-name
+        |  by completing a row, column, or diagonal.
+    - var n = 1;
+    ul.question
+      while n <= 9
+        - n++
+        li.question-box.flex-align-center.faded-border
+          span.status(status="0")
+    .answer.hidden
+      .instruction
+        img(src="../img/user/please_select.png")
+      .options
+      .submit.border.small-btn
+        img(src="../img/submit.png")
+  script(src='javascripts/user-actions.js')

@@ -1,0 +1,36 @@
+extends ./layouts/layout
+block mc
+  //- #shadow
+  video#bgvid( playsinline='', autoplay='', muted='', loop='')
+    source(src='video/demo.mp4', type='video/mp4')
+  header.mc_board_header
+    #starter_host_logo
+      img(src="img/title2.png")
+  #host
+    img#host_logo(src="img/title2.png")
+    #counter
+        #left-coutner
+          #num-counter
+          p gifts to go
+        img(src="img/gift.png", alt="")
+    #mc_q_wrapper
+      #question_content
+        img#show_mc_question(src="img/mc/question-list/start.png")
+      ul.mc_questions
+        - var n = 0
+        while n < 9
+          - n++
+          li.question_mc_box(data-qid=n)
+            //- .mc-circle
+            span.status(status="0")= n
+    #list-winners 
+      ul#list-winners-ul
+
+
+
+  footer.mc_board_header
+    #starter_host_logo
+      img(src="img/title2.png")
+      h1 Thanks for joing our Game!
+      h1 Let's enjoy the dinner and have fun tonight!
+  script(src='javascripts/mc-actions.js')
