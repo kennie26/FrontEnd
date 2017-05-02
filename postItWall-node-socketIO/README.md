@@ -10,6 +10,14 @@ o wall refresh when recover from disconnect
 o wall manage move, delete with touch
 
 
+technology used:
+
+o node
+
+o socketIO
+
+o sqlitedb
+
 
 ## How to Install
 ```sh
