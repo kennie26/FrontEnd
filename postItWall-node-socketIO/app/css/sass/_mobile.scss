@@ -1,0 +1,6 @@
+
+//Mobile
+@mixin mobile-base{
+	html,body{min-height:100%;}
+	.mobile #container{width:640px;}
+}

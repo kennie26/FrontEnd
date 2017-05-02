@@ -1,0 +1,7 @@
+@mixin has-transition{
+	.csstransitions &{@content;}
+}
+
+@mixin has-transform{
+	.csstransforms &{@content;}
+}

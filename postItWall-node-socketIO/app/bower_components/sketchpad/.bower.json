@@ -1,0 +1,33 @@
+{
+  "name": "sketchpad",
+  "version": "0.1.0",
+  "homepage": "https://github.com/yiom/sketchpad",
+  "authors": [
+    "Nihey Takizawa <nihey.takizawa@gmail.com>",
+    "Jean Lucas <jeanleonino@gmail.com>"
+  ],
+  "description": "A simple sketchpad library.",
+  "main": "scripts/sketchpad.js",
+  "keywords": [
+    "svg",
+    "sketchpad"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.0",
+    "commit": "e48fa414555314d7a4b435f937a3f0603282e043"
+  },
+  "_source": "https://github.com/yiom/sketchpad.git",
+  "_target": "^0.1.0",
+  "_originalSource": "sketchpad",
+  "_direct": true
+}

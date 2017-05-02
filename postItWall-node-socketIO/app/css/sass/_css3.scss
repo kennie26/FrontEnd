@@ -1,0 +1,108 @@
+
+@mixin build-browser-prefix($prop,$value,$prefixes:$default-prefixes){
+	@each $prefix in $prefixes{
+		-#{$prefix}-#{$prop}:#{$value};
+	}
+	//Default
+	#{$prop}: #{$value};
+}
+
+@mixin border-radius($value:5px){
+	@include build-browser-prefix(border-radius,$value);
+	@include build-browser-prefix(background-clip,padding-box);
+	@extend %pie !optional;
+}
+
+@mixin box-shadow($value){
+	@include build-browser-prefix(box-shadow,$value);
+	@extend %pie !optional;
+}
+
+@mixin transition($list...){
+	@include build-browser-prefix(transition,$list);
+}
+@mixin transition-delay($list...){
+	@include build-browser-prefix(transition-delay,$list);
+}
+
+@mixin animation($value...) {
+	@include build-browser-prefix(animation,$value);
+}
+
+@mixin transform($value...){
+	@include build-browser-prefix(transform,$value);
+}
+
+@mixin mask($value){
+	@include build-browser-prefix(mask-image,$value,webkit);
+}
+
+@mixin keyframe($name,$prefixes:$default-prefixes){
+	@-webkit-keyframes #{$name} {@content;}
+	@-moz-keyframes #{$name} {@content;}
+	@-o-keyframes #{$name} {@content;}
+	@-ms-keyframes #{$name} {@content;}
+	@keyframes #{$name} {@content;}
+}
+
+@mixin gradient($from,$to,$xStart:left,$yStart:top,$xEnd:left,$yEnd:bottom){
+	background-color: $to;
+	background-image: -webkit-linear-gradient($yStart, $from, $to);
+	background-image: -webkit-gradient(linear, $xStart $yStart, $xEnd $yEnd, from($from), to($to));
+	background-image: -moz-linear-gradient($yStart, $from, $to);
+	background-image: -ms-linear-gradient($yStart, $from, $to);
+	background-image: -o-linear-gradient($yStart, $from, $to);
+	background-image: linear-gradient($yStart, $from, $to);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$from}, endColorstr=#{$to});
+}
+
+@mixin horizonal-align {
+  position: relative;
+  left: 50%;
+  @include transform(translate(-50%,0));
+}
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  @include transform(translate(0,-50%));
+}
+
+@mixin center-align {
+  position: relative;
+  top: 50%;
+  @include transform(translate(-50%,-50%));
+  left: 50%;
+}
+
+
+
+//Box Layout (Experiment)
+@mixin box-layout-display($value,$prefixes:$default-prefixes){
+	@each $prefix in $prefixes{
+		display:-#{$prefix}-#{$value};
+	}
+}
+
+@mixin box-flex($value){
+	@include build-browser-prefix(box-flex,$value);
+}
+
+
+
+
+//MISC
+@mixin input-placeholder{
+	&::-webkit-input-placeholder {@content;}
+	&:-moz-placeholder{@content;} //Mozilla Firefox 4 to 18
+	&::-moz-placeholder {@content;} // Mozilla Firefox 19+
+	&:-ms-input-placeholder {@content;} // IE 10
+}
+
+
+
+
+
+
+//helper class
+.disable-transition{@include transition(none !important);}

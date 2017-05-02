@@ -1,0 +1,12 @@
+@function contains($list,$var) {
+    @return (false == index($list, $var));
+}
+
+@function px2em($toPx,$basePx:$base-font-size){
+	@return ($toPx/$base-font-size)#{em};
+}
+
+@function rgba-ie($r,$g,$b,$a){
+	$ie-color:ie-hex-str(rgba($r,$g,$b,$a));
+	@return progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-color},endColorstr=#{$ie-color}); 
+}

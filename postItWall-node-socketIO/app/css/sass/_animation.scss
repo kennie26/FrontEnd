@@ -1,0 +1,107 @@
+@import "common";
+
+@include keyframe(characterAnimation) {
+	0%{ @include transform(scale(1.03, 1)); }
+	100%{ @include transform(scale(1, 1.03)); }
+}
+@include keyframe(stamp) {
+	0%{ @include transform(scale(2, 2)); opacity:0; }
+	100%{ @include transform(scale(1, 1)); opacity:1; }
+}
+
+@include keyframe(scaleUp) {
+	0%{ @include transform(scale(1, 1)); opacity:1; }
+	100%{ @include transform(scale(3, 3)); opacity:0; }
+}
+
+@include keyframe(drop) {
+	0%{ @include transform(scale(0.5, 0.5)translate(0px,-10px)); opacity:0.5;}
+	30%{ @include transform(scale(1, 1)translate(0px,0px)); opacity:1;}
+	100%{ @include transform(scale(1, 1)translate(0px,30px)); opacity:0; }
+}
+
+
+@include keyframe(bubbleAnimation) {
+	0%{ @include transform( scale(1, 1)); }
+	100%{ @include transform( scale(1.03, 1.03)); }
+}
+@include keyframe(blink2) {
+	0%{ opacity : 0.8; }
+	100%{ opacity : 1; }
+}
+@include keyframe(blink) {
+	0%{ opacity : 0.5; }
+	100%{ opacity : 1; }
+}
+@include keyframe(shake) {
+	0%{ @include transform(rotate(0deg)); }
+	3%{ @include transform(rotate(20deg)); }
+	6%{ @include transform(rotate(-20deg)); }
+	9%{ @include transform(rotate(20deg)); }
+	12%{ @include transform(rotate(-20deg)); }
+	15%{ @include transform(rotate(0deg)); }
+	100%{ @include transform(rotate(0deg)); }
+}
+
+@include keyframe(float) {
+
+	0% { @include transform(translate(0px,0px)); }
+	20% { @include transform(translate(0px,30px)); }
+	40% { @include transform(translate(0px,-10px)); }
+	60% { @include transform(translate(0px,30px)); }
+	80% { @include transform(translate(0px,-10px)); }
+	100% { @include transform(translate(0px,0px)); }
+
+}
+
+@include keyframe(compass) {
+	0%{ @include transform(rotate(60deg)); }
+	12%{ @include transform(rotate(-40deg)); }
+	24%{ @include transform(rotate(-90deg)); }
+	36%{ @include transform(rotate(110deg)); }
+	48%{ @include transform(rotate(30deg)); }
+	60%{ @include transform(rotate(80deg)); }
+	72%{ @include transform(rotate(-70deg)); }
+	84%{ @include transform(rotate(10deg)); }
+	96%{ @include transform(rotate(-40deg)); }
+}
+
+@include keyframe(compass360) {
+	0%{ @include transform(scale(1.2, 1.2) rotate(360deg));}
+	100%{ @include transform(scale(1, 1) rotate(0deg));}
+}
+
+@include keyframe(fadeIn) {
+	0%{ opacity : 0; }
+	100%{ opacity : 1;}
+}
+@include keyframe(fadeOut) {
+	0%{ opacity : 1; 
+
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter: alpha(opacity=1);-moz-opacity: 1;-khtml-opacity: 1;
+	}
+	100%{ opacity : 0; }
+}
+
+@include keyframe(slideInLeft) {
+	0% { @include transform(translate(60px,0px)); }
+  100% { @include transform(translate(0px,0px)); }
+}
+@include keyframe(slideInRight) {
+	0% { @include transform(translate(-60px,0px)); }
+  100% { @include transform(translate(0px,0px)); }
+}
+@include keyframe(slideInBottom) {
+	0% { @include transform(translate(0px,20px)); }
+  100% { @include transform(translate(0px,0px)); }
+}
+@include keyframe(slideInTop) {
+	0% { @include transform(translate(0px,-20px)); }
+  100% { @include transform(translate(0px,0px)); }
+}
+
+@include keyframe(droplet) {
+	0% { opacity:0; @include transform(scale(0.2,0.2)); @include transform(translate(0px,-229px)); }
+	50% { opacity:1; @include transform(scale(1)); @include transform(translate(0px,-229px)); }
+	100% { @include transform(translate(0,0)); }
+}

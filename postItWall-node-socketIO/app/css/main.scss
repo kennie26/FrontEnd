@@ -1,0 +1,237 @@
+@import "sass/common";
+@import "sass/css3";
+
+
+@import "sass/animation";
+
+body, html{
+  margin:0;
+  padding: 0;
+  width: 100%; height: 100%;
+  // background: #e7e7e7;
+}
+
+.fLeft{ float: left;}
+.fRight{ float: right;}
+
+.ipad{
+  width: 1024px;  height: 100%;
+  display: block;
+  // margin: auto;  margin-top: 0;
+
+
+// background-image:url('../images/ipad_bg1.png');
+ // background-position: top center;
+// background-position: 0px -5px;
+
+ // background-size: contain;
+ background-repeat: no-repeat;
+
+    .tool_bar{
+        button, span, input, select{ display: inline-block; vertical-align:middle;}
+    }
+
+    .left_panel{ width: 301px; height: 100%; display: block; position: absolute; top:0; left:0;
+          background: url('../images/left_panel.png') top left no-repeat;
+          background-size: cover;
+    }
+
+    #sketchpad{
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        position: relative;
+
+    }
+
+    .sketchpad_container{
+        // border:1px solid black;
+        background-repeat: no-repeat;;
+        background-position: center center;
+        background-size: contain;
+        background-image: url('../images/memo_bg1.png');
+
+
+        position: absolute;
+        top:57px; left:341px;
+        width:640px; height: 640px;
+        .blocker{
+          position: absolute; right:0; bottom:0;
+          display: block;
+          width: 100px; height: 100px;
+          // background: rgba(0,0,0,0.5);
+          z-index: 100;
+        }
+    }
+
+
+
+    .color_sel{
+        display: inline-block;
+        position: absolute; top:400px; left:30px;
+
+        .color{
+          width:37px; height: 30px;
+          margin-right: 3px;
+          display: inline-block; float: left;
+          transition: all 0.1s ease;
+          text-align: center;
+          color:white;
+          font-family: arial; font-size: 9px;
+          text-decoration:none;line-height: 30px;
+          border:1px solid #cccccc;
+
+          &.selected{
+            border: 1px solid white !important;
+            -ms-transform: scale(1.3, 1.3); /* IE 9 */
+            -webkit-transform: scale(1.3, 1.3); /* Safari */
+            transform: scale(1.3, 1.3);
+          }
+
+        }
+
+
+
+
+
+    }
+
+    .action{
+        display: inline-block;
+        position: absolute; left:30px; top:470px;
+        width: 243px;
+        .button{ margin-right: 10px; width:240px; display: inline-block; margin-bottom: 25px;}
+
+        .redo, .undo{ width: 45%; margin:0;}
+
+    }
+
+
+    .button{
+      border:1px solid white; text-decoration: none;
+      font-size:20px; font-family: Arial;
+      color:white; text-align: center;
+      display: inline-block; line-height: 45px; width: 60px;
+
+      &.selected{ color:#14208d; background:white }
+      // &:selected{ }
+    }
+
+    .txt{
+        color: white; font-family: Arial; font-size: 18px;
+        &.answer  { position:absolute; left:30px; top: 230px; }
+        &.question{ position:absolute; left:30px; top: 360px; width: 257px; }
+    }
+
+    .left_logo{ position: absolute; left:60px; top: 638px; width:183px; }
+
+    .answer{
+      position: absolute; top:265px; left:30px;
+      width: 241px; text-align: center;
+        .choices{ width: 70px; margin-bottom:25px; }
+        .ans1{ position: absolute; left:0}
+        .ans3{ position: absolute; right:0 }
+        .ans2{ margin: 0!important; }
+
+    }
+
+}//ipad end
+
+
+.status{
+  background: RGBA(0,0,0,0.5);
+  color: white;
+  padding:10px;
+  font-size: 20px;
+  // display: none;
+  position: fixed;
+  top:0; right:0;
+  width: 100%; height: 100%;
+  display: none;
+  z-index: 99999;
+
+  .msg{ color:white; width: 100%;font-size: 20px; line-height: 1.5em; font-family: Arial; text-align: center; @include vertical-align();}
+}
+
+.confirm{
+  .button{
+    margin-top: 15px;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+        width: initial;
+    &:last-child{ margin-right: 0; }
+  }
+}
+
+.board_html{
+  .msg{ font-size: 120px;  }
+}
+
+.broad{
+      background-image: url('../images/broad_bg.jpg');
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: black;
+
+      // width: 100%; height: 100%;
+      width:5760px; height: 3123px;
+
+      .cat_a, .cat_b, .cat_c{
+              width: 30%; min-height: 50px;
+              display: block; float:left;
+      }
+
+      .post{
+            width: 310px; height: 310px;
+            background-position: center center;
+            background-repeat: no-repeat;
+
+
+            &.new{ @include animation(stamp 0.2s ease-out 0s ); }
+
+            &.color1{ background-image: url('../images/memo_bg1.png')}
+            &.color2{ background-image: url('../images/memo_bg2.png')}
+            &.color3{ background-image: url('../images/memo_bg3.png')}
+            &.color4{ background-image: url('../images/memo_bg4.png')}
+            &.color5{ background-image: url('../images/memo_bg5.png')}
+            &.color6{ background-image: url('../images/memo_bg6.png')}
+            position: absolute;
+
+/*
+            &:hover{
+                .btn_close{ display: block; }
+            }
+*/
+            .btn_close{ display: none; position:absolute; top:0; right: 0; margin-top: -56px; margin-right: -56px;}
+
+            .delete{
+              width: 100%; height: 100%;display: block;
+              position: absolute; top: 0; left: 0;
+              background: url('../images/puf_anim.gif') no-repeat;
+              background-position: center center;
+              z-index: 100; background-size: cover;
+
+              -ms-transform: scale(1.6, 1.6); /* IE 9 */
+              -webkit-transform: scale(1.6, 1.6); /* Safari */
+              transform: scale(1.6, 1.6);
+
+            }
+
+       }
+        .topPost{ z-index: 9999;
+            .btn_close{ display: block; }
+        }
+
+      .post_content{ width: 100%;}
+
+      .debug{
+        width: 100%; height: 50px;
+        overflow-y: auto;
+        position: absolute; left:0; bottom: 0;
+        background-color:rgba(0,0,0,0.8);
+        display: block;
+      };
+}

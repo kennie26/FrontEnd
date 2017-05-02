@@ -1,0 +1,22 @@
+@mixin breakpoint($min-width:-1,$max-width:-1){
+	$media_queries : "only screen";
+	
+	@if $min-width != -1{
+		$media_queries : $media_queries + " and (min-width:"#{$min-width}")";
+	}
+	@if $max-width != -1{
+		$media_queries : $media_queries + " and (max-width:"#{$max-width}")";
+	}
+	
+	//@debug #{$media_queries};
+
+	@media #{$media_queries} {@content;}
+}
+
+// responsive
+@mixin screen($size){
+	@if unitless($size){
+		$size:$size#{px}
+	}
+	@media only screen and (max-width: $size){@content;}
+}

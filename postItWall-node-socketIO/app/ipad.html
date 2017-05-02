@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="ipad" style="background-color:#d8d6e0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>postit ipad</title>
+
+  <script src="js/jquery.min1.11.1.js"></script>
+  <script src="bower_components/sketchpad/scripts/sketchpad.js" type="text/javascript"></script>
+
+  <script src="js/socket.io.min.js"></script>
+  <script src="js/ipad.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+<body class="">
+  <div class="status confirm">
+      <div class="msg">
+        <span class="quest"></span><br />
+        <a href="#" class="button btn_confirm selected">Confirm</a>
+        <a href="#" class="button btn_cancel">Cancel</a>
+      </div>
+  </div>
+  <div class="status connection">
+      <div class="msg"></div>
+  </div>
+
+  <div class="left_panel"></div>
+
+  <div class="txt answer">Refer to question number:</div>
+  <div class="txt question">Please select memo color:</div>
+
+  <div class="answer">
+    <a href="#" class="button choices ans1" ans="1">1</a>
+    <a href="#" class="button choices ans2" ans="2">2</a>
+    <a href="#" class="button choices ans3" ans="3">3</a>
+  </div>
+
+  <div class="color_sel">
+      <a href="#" class="color color1" col="1" style="background-color:#f50b6a; border-color:#f50b6a; ">FS</a>
+      <a href="#" class="color color2" col="2" style="background-color:#f9a61a; border-color:#f9a61a; ">PRD</a>
+      <a href="#" class="color color3" col="3" style="background-color:#3ab54a; border-color:#3ab54a; ">CMT</a>
+      <a href="#" class="color color4" col="4" style="background-color:#00afee; border-color:#00afee; ">RES</a>
+      <a href="#" class="color color5" col="5" style="background-color:#ff9dba; border-color:#ff9dba; ">H&PS</a>
+      <a href="#" class="color color6" col="6" style="background-color:#01f0d8; border-color:#01f0d8; ">OTHERS</a>
+  </div>
+
+  <div class="action">
+      <a href="#" class="button clear">Clear All</a><!--
+    --><a href="#" class="button submit selected">Submit</a><br />
+      <a href="#" class="button undo fLeft">Undo</a>
+      <a href="#" class="button redo fRight">Redo</a>
+  </div>
+
+  <div class="sketchpad_container">
+    <canvas id="sketchpad"></canvas>
+    <div class="blocker"></div>
+  </div>
+
+</body>
+</html>

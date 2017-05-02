@@ -1,0 +1,15 @@
+//Animation
+@include keyframe(fadeIn){
+	0%{opacity:0;}
+	100%{opacity:1;}
+}
+
+@include keyframe(fadeOut){
+	0%{opacity:1;}
+	100%{opacity:0;}
+}
+
+@include keyframe(spin){
+	0%{@include transform(rotate(0deg));}
+	100%{@include transform(rotate(359deg));}
+}

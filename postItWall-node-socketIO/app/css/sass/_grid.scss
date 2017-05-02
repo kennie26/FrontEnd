@@ -1,0 +1,14 @@
+$grid-columns: 12; 
+$grid-max-page-width: 1920;
+$grid-column-width: $grid-max-page-width / $grid-columns; 
+$grid-column-padding: 1rem; 
+
+@mixin column($amount, $max-width: $grid-max-page-width, $padding: $grid-column-padding) { 
+	width: percentage(($grid-column-width * $amount) / $max-width); 
+	padding: $padding; 
+};
+
+@mixin grid-init{
+	.col .col{margin:0;}
+
+}

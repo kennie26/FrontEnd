@@ -1,0 +1,106 @@
+@import "vars";
+@import "utils";
+
+@import "reset";
+
+
+// Class for extend
+@mixin has-layout{
+	*zoom:1;
+}
+
+@mixin clearfix{
+	@include has-layout;
+	//clear:both;
+	//&:before,
+	//&:after{content:"\0020";display: block;font-size:0;height:0;overflow:hidden;}
+
+	&:after{clear:both;content:"";display:table;}
+}
+
+
+
+
+@mixin equal-height($paddingBottom:0px){
+	overflow:hidden;position:relative;
+	&>*{padding-bottom:5000px+$paddingBottom !important;margin-bottom:-5000px !important;}
+}
+
+@mixin swap-img($invert:false) {
+	cursor: pointer;
+	background-repeat: no-repeat;
+	@if $invert == false {
+		background-position:left top;
+	} @else {
+		background-position:left bottom;
+	} 
+	&:hover,&.hover, &.active,
+	&:hover span{
+		@if $invert == false {
+			background-position:left bottom;
+		} @else {
+			background-position:left top;
+		}
+	};
+}
+
+
+
+
+//CSS2
+@mixin arrow($dir:top,$width:5px,$height:5px,$color:#FFF){
+	//Default Top
+	$opposite:bottom;
+	$edges:left right;
+	
+	@if $dir == bottom{
+		$opposite:top;
+		$edges:left right;
+	} @else if $dir == left{
+		$opposite:right;
+		$edges:top bottom;
+		$temp:$width;
+		$width:$height;
+		$height:$temp;
+	} @else if $dir == right{
+		$opposite:left;
+		$edges:top bottom;
+		$temp:$width;
+		$width:$height;
+		$height:$temp;
+	}
+
+	border-#{$opposite}:$width solid $color;
+
+	@each $edge in $edges{
+		border-#{$edge}:$height solid transparent;
+	}
+
+	width:0px;
+	height:0px;
+	display:block;
+}
+
+
+@mixin loading{
+	.loading{overflow:hidden;background-image:url($ajax-loader-gif);background-repeat:no-repeat;background-position: center center;
+		&>*{visibility:hidden;opacity:0;filter:alpha(opacity=0);}
+	}
+}
+
+
+@mixin opacity($value){
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$value+")";
+  filter: alpha(opacity=$value);
+  -moz-opacity: $value/100;
+  -khtml-opacity: $value/100;
+  opacity: $value/100;
+}
+
+
+.clearfix{@include clearfix;}
+
+
+
+
+

@@ -1,0 +1,9 @@
+.tnc { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999;
+	.bg { width: 100%; height: 100%; background-color:#000; @include opacity(80); position: fixed; }
+	.tncContentBox { width:611px; height:600px; margin:120px auto 0; padding:15px; position: relative; border:1px solid #d6d6d6; background-color:#fff;
+		.title { font-size: 20px; line-height: 30px; font-weight: bold; padding:20px 0 10px 17px;}
+		ol { padding-left: 38px; overflow: auto; width: 570px; height: 500px; }
+		li { list-style-type: decimal; padding-bottom: 10px; padding-right:20px;}
+	}
+	.btn-close { position: absolute; right: 20px; top: 20px; width: 42px; height: 42px; background-image: url("../images/ui/btn-close.png"); @include swap-img(); }
+}
