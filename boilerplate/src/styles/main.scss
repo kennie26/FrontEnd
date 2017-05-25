@@ -1,0 +1,16 @@
+@import "reset-css/reset.css";
+@import "variables.scss";
+@import "slick.scss";
+
+.box {
+	width: 150px;
+	height: 150px;
+
+	&.red {
+		background-color: $red;
+	}
+
+	&.blue {
+		background-color: $blue;
+	}
+}
